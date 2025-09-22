@@ -40,4 +40,4 @@ que evoluiu em duas etapas principais:
 ### Versão Cenaflix (Filmes – NetBeans/Ant)
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/seu-usuario/cenaflix.git
+   git clone https://github.com/MatheusNeckel/Cenaflix.git
