@@ -1,0 +1,31 @@
+# SO
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Java/IDE
+/build/
+/out/
+/target/
+*.class
+*.iml
+.idea/
+.vscode/
+nbproject/private/
+dist/
+*.jar
+
+# Maven
+.mvn/
+.settings/
+.classpath
+.project
+
+# Logs & temporários
+*.log
+*.tmp
+
+# Segredos
+.env
+*.key
+*.pem

@@ -1,0 +1,33 @@
+name: Build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java: [ '8', '17' ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: ${{ matrix.java }}
+
+      - name: Build (Ant) - Cenaflix filmes
+        if: ${{ hashFiles('Cenaflix/build.xml') != '' }}
+        run: |
+          sudo apt-get update && sudo apt-get install -y ant
+          ant -noinput -buildfile Cenaflix/build.xml
+
+      - name: Build (Maven) - CenaflixJPA podcasts/usuarios
+        if: ${{ hashFiles('CenaflixJPA/pom.xml') != '' }}
+        run: |
+          cd CenaflixJPA
+          mvn -B -ntp -DskipTests clean package
